@@ -67,7 +67,7 @@ def insert(
         '{audio_transcription}', '{audio_file}', '{lat}', '{lon}', \
         '{frequency}', '{urgent}', '{urgent_surgical}', '{priority}',\
         '{routine}', '{convenience}', '{litter}', '{ambulatory}',\
-        '{us_military}', '{us_civilian}', '{non_us_civilian}',\
+        '{us_military}', '{us_civilian}','{non_us_military}','{non_us_civilian}',\
         '{enemy_prisoner_of_war}', '{equipment}', '{site_security}', '{pickup_mark}', '{cbrn}')"
     
     cursor.execute(query)
