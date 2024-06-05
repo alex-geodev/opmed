@@ -5,26 +5,21 @@
       <q-toolbar>
 
         <q-toolbar-title>
-          <span>OP Med Tool</span>
+          <q-avatar class="q-ma-sm">
+            <img src="../assets/mc.svg">
+          </q-avatar>
+          <span class="text-bold">Stitched Up</span>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
 
     <q-page-container>
-      <q-page class="column justify-start">
+      <q-page class="q-pa-md">
         <router-view />
       </q-page>
     </q-page-container>
 
-    <q-footer bordered class="bg-primary text-white">
-      <div class="row no-wrap shadow-1">
-      <q-toolbar class="col-11">
-        <q-btn flat round dense icon="copyright" />
-          <div>2022 License Here</div>
-      </q-toolbar>
-      </div>
-    </q-footer>
 
   </q-layout>
 </template>

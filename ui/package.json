@@ -9,7 +9,7 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "api": "rm -rf src/generated/salary && rm -rf openapi.json && wget localhost:8000/openapi.json && openapi-generator-cli generate -i http://localhost:8000/openapi.json --generator-name typescript-axios --config api.json -o src/generated/salary && cd src/generated/salary && npm install && npm run build"
+    "api": "rm -rf src/generated/ && rm -rf openapi.json && wget localhost:8000/openapi.json && openapi-generator-cli generate -i http://localhost:8000/openapi.json --generator-name typescript-axios --config api.json -o src/generated/ && cd src/generated/ && npm install && npm run build"
 
   },
   "dependencies": {

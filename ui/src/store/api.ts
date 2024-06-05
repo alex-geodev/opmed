@@ -1,26 +1,17 @@
-import { reactive, toRef, toRefs } from 'vue';
+import { reactive, toRefs } from 'vue';
 import {
   Configuration,
-  SalaryApi,
-  MetricsApi
-} from 'src/generated/salary';
+  NineLineApi
+} from 'src/generated/';
 
   
 const state = reactive({
-  salaryApi: new SalaryApi(),
-  metricsApi: new MetricsApi(),
+  ninelineApi: new NineLineApi(),
   isAdmin: false
 });
 
-export function useSalaryApi() {
-  state.salaryApi = new SalaryApi();
-  return {
-    ...toRefs(state)
-  };
-}
-
-export function useMetricsApi() {
-  state.metricsApi = new MetricsApi();
+export function useNinelineApi() {
+  state.ninelineApi = new NineLineApi();
   return {
     ...toRefs(state)
   };
@@ -30,8 +21,7 @@ export function useMetricsApi() {
 export function useApi() {
   const token = localStorage.getItem('token') || '';
   const apiConf = new Configuration({ basePath: '/api', accessToken: token });
-  state.salaryApi = new SalaryApi(apiConf);
-  state.metricsApi = new MetricsApi(apiConf);
+  state.ninelineApi = new NineLineApi(apiConf);
 
   return {
     ...toRefs(state),
