@@ -53,9 +53,17 @@ def audio_2_nine_line(audio_file) -> NineLineBase:
         result = audio_model.FinalResult()
         result = eval(result)
         doc['audio_translation'] = result['text']
+
+
         return doc
     except Exception as e:
         print(e)
+
+def nine_line_to_json():
+    pass
+
+def json_to_db():
+    pass
 
 def create_nine_line(audio_file):
     """
