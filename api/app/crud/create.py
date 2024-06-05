@@ -59,7 +59,7 @@ def audio_2_nine_line(audio_file) -> NineLineBase:
     except Exception as e:
         print(e)
 
-def nine_line_to_json():
+def nine_line_to_json(data:dict)->dict:
     pass
 
 def json_to_db():
