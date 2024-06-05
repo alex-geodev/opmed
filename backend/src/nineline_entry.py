@@ -5,7 +5,7 @@ import sqlite3
 connection = sqlite3.connect("ninelines.db")
 TABLE_NAME = "ninelines"
 SCHEMA = {
-    "id": "integer primary key",
+    "id": "text primary key",
        "audio_transcription": "text",
         "audio_file": "text",
         "mgrs": "text",
