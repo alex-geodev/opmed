@@ -1,1 +1,5 @@
 vosk==0.3.44
+pydub
+wave
+ffprobe
+ffmpeg
