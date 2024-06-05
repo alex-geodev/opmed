@@ -1,0 +1,19 @@
+Nine Line Object
+Location:
+    - MGRS (str)
+    - LAT (float)
+    - LON (float)
+Frequency (float)
+Patient Precedence: 
+    -Status (str)
+    -Number of Patients (int)
+Equipment (str)
+Number of Patients:
+    - mobility (str)
+    - number of patients (int)
+Site Security (str)
+Pickup Mark (str)
+Nationality:
+    - nationality (str)
+    - number of patients (int)
+CBRN (str)
