@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     ###########################################
     ############### Vosk Config ###############
     ###########################################
-    #VOSK_MODEL_PATH: str = '/Users/nmaynard/Development/op_med_api/vosk-model-en-us-0.22'
+    VOSK_MODEL_PATH: str = '/Users/nmaynard/Development/vosk-model-en-us-0.22'
 
     ###########################################
     ######### Object Store Config #############
