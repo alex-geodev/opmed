@@ -25,7 +25,7 @@ digits = {
     "nine":9, "niner":9
     }
 
-phonetic_alphabet = ["alpha", "bravo", "charlie","delta", "echo", "foxtrot", "golf", 
+phonetic_alphabet = ["alpha", "bravo", "charlie","charley","delta", "echo", "foxtrot", "golf", 
 "hotel","india", "juliet","kilo" ,"lima", "mike", "november", "oscar", 
 "papa", "quebec", "romeo" ,"sierra", "tango", "uniform", "victor", "whiskey", 
-"x-ray", "yankee", "zulu"]
+"x-ray",'xray','x ray', "yankee", "zulu"]
