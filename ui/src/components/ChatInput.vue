@@ -1,9 +1,9 @@
 <template>
     <q-input
-      v-model="prompt"
+      v-model="chatText"
       filled
       stack-label
-      label="Provide Further Requirements"
+      label="Message Chatter"
       >
 
     </q-input>
@@ -11,14 +11,17 @@
 
 <script lang="ts">
 import { defineComponent, ref} from 'vue';
+import { useState } from 'src/store/main';
 
 export default defineComponent({
-  name: 'textInput',
+  name: 'chatInput',
   setup() {
-    const prompt = ref("");
+    const {
+        chatText
+      } = useState();
 
     return {
-      prompt
+      chatText
     }
   }
 });

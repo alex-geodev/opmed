@@ -4,7 +4,8 @@ import { reactive, toRefs } from 'vue';
 const { ninelineApi } = useApi();
 
 const state = reactive({
-  prompt: '',
+  chatText: '',
+  radioText: '',
   allNineLines: [] as any,
   activeNineLine: undefined,
   loading: false,
@@ -24,6 +25,7 @@ export async function getNineLines() {
 export async function getChatBotAnswer() {
   state.loading = true;
   state.chatResponse = 'response placeholder';
+  state.loading = false;
 }
 
 export async function getNineLine(id: string) {
@@ -36,12 +38,11 @@ export async function getNineLine(id: string) {
   state.loading = false;
 }
 
-export async function getCOAS(id: string) {
+export async function getCOAS(id: string, chatText: string, radioText: string) {
+  console.log(id);
+  console.log(chatText);
+  console.log(radioText);
   state.loading = true;
-  const resp = await ninelineApi.value.createNinelineCreatePost;
-  const { data } = resp;
-  console.log(data);
-  state.coas = data;
   state.loading = false;
 }
 

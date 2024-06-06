@@ -6,7 +6,10 @@
         <file-select />
       </q-card-section>
       <q-card-section>
-        <text-input />
+        <div class="row q-gutter-md justify-center">
+          <chat-input class="col-5"/>
+          <radio-input class="col-5"/>
+        </div>
       </q-card-section>
       <q-card-actions class="q-pa-md" align="around">
         <q-btn color="primary">Calculate</q-btn>
@@ -59,7 +62,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import FileSelect from 'src/components/FileSelect.vue';
-import TextInput from 'src/components/TextInput.vue';
+import ChatInput from 'src/components/ChatInput.vue';
+import RadioInput from 'src/components/RadioInput.vue';
 import ChatBot from 'src/components/ChatBot.vue';
 import { useState } from 'src/store/main';
 
@@ -68,25 +72,28 @@ export default defineComponent({
   setup() {
     const {
       loading,
+      chatText,
+      radioText,
       allNineLines,
       activeNineLine,
-      prompt,
       coas,
       chatResponse,
     } = useState();
 
     return {
       loading,
+      chatText,
+      radioText,
       allNineLines,
       activeNineLine,
-      prompt,
       coas,
       chatResponse,
     };
   },
   components: {
     FileSelect,
-    TextInput,
+    ChatInput,
+    RadioInput,
     ChatBot,
   },
 });
