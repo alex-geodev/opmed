@@ -1,5 +1,6 @@
 <template>
-	<div class="row full-width q-pa-md">
+  <chat-bot></chat-bot>
+  <div class="row full-width q-pa-md">
     <q-card flat class="col-12">
       <q-card-section>
         <file-select />
@@ -12,13 +13,11 @@
         <q-btn color="primary">Clear</q-btn>
       </q-card-actions>
     </q-card>
-	</div>
-  <div class="row full-width q-pb-md q-pl-md q-pr-md" style="min-height:30vh">
+  </div>
+  <div class="row full-width q-pb-md q-pl-md q-pr-md" style="min-height: 30vh">
     <q-card flat class="col-12">
       <q-card-section>
-        <div class="text-bold text-center">
-          Summary of asdfaasdf
-        </div>
+        <div class="text-bold text-center">Summary of asdfaasdf</div>
       </q-card-section>
       <q-separator />
       <q-card-section>
@@ -37,24 +36,22 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="row full-width text-center justify-center" style="min-height:30vh; max-height:30vh">
-    <q-card v-ripple class="col-4 q-mr-md" style="max-width:32%">
-      <q-card-section class="text-bold">
-        COA 1
-      </q-card-section>
+  <div
+    class="row full-width text-center justify-center"
+    style="min-height: 30vh; max-height: 30vh"
+  >
+    <q-card v-ripple class="col-4 q-mr-md" style="max-width: 32%">
+      <q-card-section class="text-bold"> COA 1 </q-card-section>
       <q-card-section>
-        Here is an example of where we would put some of this high level information
+        Here is an example of where we would put some of this high level
+        information
       </q-card-section>
     </q-card>
-    <q-card v-ripple class="col-4 q-mr-md" style="max-width:32%">
-      <q-card-section class="text-bold">
-        COA 2
-      </q-card-section>
+    <q-card v-ripple class="col-4 q-mr-md" style="max-width: 32%">
+      <q-card-section class="text-bold"> COA 2 </q-card-section>
     </q-card>
-    <q-card v-ripple class="col-4" style="max-width:32%">
-      <q-card-section class="text-bold">
-        COA 3
-      </q-card-section>
+    <q-card v-ripple class="col-4" style="max-width: 32%">
+      <q-card-section class="text-bold"> COA 3 </q-card-section>
     </q-card>
   </div>
 </template>
@@ -63,30 +60,34 @@
 import { defineComponent } from 'vue';
 import FileSelect from 'src/components/FileSelect.vue';
 import TextInput from 'src/components/TextInput.vue';
+import ChatBot from 'src/components/ChatBot.vue';
 import { useState } from 'src/store/main';
 
 export default defineComponent({
   name: 'IndexPage',
   setup() {
-      const {
-        loading,
-        allNineLines,
-        activeNineLine,
-        prompt,
-        coas
-      } = useState();
+    const {
+      loading,
+      allNineLines,
+      activeNineLine,
+      prompt,
+      coas,
+      chatResponse,
+    } = useState();
 
-      return {
-        loading,
-        allNineLines,
-        activeNineLine,
-        prompt,
-        coas
-      }
+    return {
+      loading,
+      allNineLines,
+      activeNineLine,
+      prompt,
+      coas,
+      chatResponse,
+    };
   },
   components: {
     FileSelect,
-    TextInput
-  }
+    TextInput,
+    ChatBot,
+  },
 });
 </script>
