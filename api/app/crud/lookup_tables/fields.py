@@ -27,5 +27,5 @@ digits = {
 
 phonetic_alphabet = ["alpha", "bravo", "charlie","charley","delta", "echo", "foxtrot", "golf", 
 "hotel","india", "juliet","kilo" ,"lima", "mike", "november", "oscar", 
-"papa", "quebec", "romeo" ,"sierra", "tango", "uniform", "victor", "whiskey", 
-"x-ray","xray","x","yankee", "zulu"]
+"papa", "quebec", "ray","romeo" ,"sierra", "tango", "uniform", "victor", "whiskey", 
+"x-ray","xray","yankee", "zulu"]

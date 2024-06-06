@@ -75,6 +75,8 @@ class nineLineHelper():
             #remaining fields have no quantity associations
             else:
                 for idx,word in enumerate(v.split()):
+                    if word == 'ray':
+                        word = 'x-ray'
                     result = self.check_for_phonetic(word)
                     if result:
                         output+=result
