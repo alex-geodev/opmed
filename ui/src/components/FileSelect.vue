@@ -1,5 +1,5 @@
 <template>
-  <q-select v-model="activeNineLine" :options="allNineLines" option-value="id" emit-value map-options option-label="id" stack-label label="Choose 9 Line"/>
+  <q-select v-model="activeNineLine" :options="allNineLines" emit-value map-options option-label="id" stack-label label="Choose 9 Line"/>
 </template>
 
 <script lang="ts">

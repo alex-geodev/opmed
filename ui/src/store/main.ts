@@ -8,42 +8,95 @@ const state = reactive({
   radioText: '',
   allNineLines: [] as any,
   activeNineLine: undefined,
-  loading: false,
+  activeCOA: undefined,
+  loadingStatus: false,
+  coaDialog: false,
+  rows: [],
   coas: [],
   chatResponse: '',
 });
 
+export async function getCOATable(coa) {
+  state.activeCOA = coa
+  state.rows = []
+  state.coaDialog = true;
+
+  const vals = Object.values(state.activeCOA.node1);
+  const keys = Object.keys(state.activeCOA.node1);
+
+  for (let index = 0; index < keys.length; index++) {
+    const temp = {}
+    temp["key"] = keys[index];
+    temp["value"] = vals[index];
+    state.rows.push(temp);
+  }
+}
+
 export async function getNineLines() {
-  state.loading = true;
+  state.loadingStatus = true;
   const resp = await ninelineApi.value.getNinelineGet();
   const { data } = resp;
   console.log(data);
   state.allNineLines = data;
-  state.loading = false;
+  state.loadingStatus = false;
 }
 
 export async function getChatBotAnswer() {
-  state.loading = true;
+  state.loadingStatus = true;
   state.chatResponse = 'response placeholder';
-  state.loading = false;
+  state.loadingStatus = false;
 }
 
 export async function getNineLine(id: string) {
-  state.loading = true;
+  state.loadingStatus = true;
   console.log(id);
   const resp = await ninelineApi.value.getNinelineGet(id);
   const { data } = resp;
   console.log(data);
   state.allNineLines = data;
-  state.loading = false;
+  state.loadingStatus = false;
 }
 
 export async function getCOAS(id: string, chatText: string, radioText: string) {
-  console.log(id);
-  console.log(chatText);
-  console.log(radioText);
-  state.loading = true;
-  state.loading = false;
+  state.loadingStatus = true;
+  setTimeout(() => {
+    state.coas= [
+      {
+        "km": 200.12,
+        "score": 1223.12,
+        "node1": {
+          "n_beds": 23,
+          "n_masks": 12,
+          "name": "Hospital",
+          "surgeons": "true",
+          "masks": "true",
+        }
+      },
+      {
+        "km": 80.12,
+        "score": 110203.12,
+        "node1": {
+          "n_beds": 23,
+          "n_masks": 12,
+          "name": "Hospital",
+          "surgeons": "true",
+          "masks": "true",
+        }
+      },
+      {
+        "km": 100.12,
+        "score": 12203.12,
+        "node1": {
+          "n_beds": 23,
+          "n_masks": 12,
+          "name": "Hospital",
+          "surgeons": "true",
+          "masks": "true",
+        }
+      }
+    ]
+  }, 1000);
+  state.loadingStatus = false;
 }
 
 export function useState() {
@@ -53,5 +106,6 @@ export function useState() {
     getNineLines,
     getCOAS,
     getChatBotAnswer,
+    getCOATable
   };
 }

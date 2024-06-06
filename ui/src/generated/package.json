@@ -1,7 +1,7 @@
 {
-  "name": "Stiched_Up",
+  "name": "Salary_Stone",
   "version": "1.0.0",
-  "description": "OpenAPI client for Stiched_Up",
+  "description": "OpenAPI client for Salary_Stone",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "Stiched_Up"
+    "Salary_Stone"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",

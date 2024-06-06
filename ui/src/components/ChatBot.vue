@@ -28,7 +28,7 @@
 export default {
   data() {
     return {
-      isVisible: true,
+      isVisible: false,
       userMessage: '',
       messages: [{ user: false, text: 'Hello! How can I help you?' }],
     };
