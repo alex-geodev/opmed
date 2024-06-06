@@ -1,6 +1,7 @@
 from .connect import es
 from app.schema.nine_line import NineLineBase
 from app.config import settings
+from app.crud.helper import nineLineHelper, send_to_db
 import uuid
 import vosk
 import os
@@ -14,7 +15,7 @@ def audio_2_nine_line(audio_file) -> NineLineBase:
     The purpose of this method is to convert from audio file to a 9 line json.
     """
     doc = {}
-    doc['id'] = uuid.uuid4()
+    doc['id'] = uuid.uuid4().replace('-','')
     doc['audio_path'] = os.getcwd() + audio_file.filename
 
 
@@ -59,13 +60,15 @@ def audio_2_nine_line(audio_file) -> NineLineBase:
     except Exception as e:
         print(e)
 
-def nine_line_to_json(data:dict)->dict:
-    pass
+def process_nine_line(data:dict)->dict:
+    nine_line = nineLineHelper(id = data.get('id'),
+                               filepath = data.get('audio_path'),
+                               transcription=data.get('audio_translation'))
+    
+    return nine_line
 
-def json_to_db():
-    pass
-
-def create_nine_line(audio_file):
+def write_to_db(processed_nine_line:dict):
     """
     The purpose of this method is to create a nine line object in the database.
     """
+    send_to_db(processed_nine_line)

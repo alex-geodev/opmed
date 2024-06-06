@@ -9,6 +9,23 @@ fields = {'patient_precedence': {'a':'urgent','b':'urgent surgical', 'c':'priori
            'cbrn':{'c':'chemical','b':'biological','r':'radioactive','n':'nuclear'}
             }
 
-line_num = {1:'location', 2:'freq', 3:'patient_precedence', 4:'equipment',
+line_numbers = {1:'location', 2:'freq', 3:'patient_precedence', 4:'equipment',
              5:'mobility', 6:'site_security', 7:'pickup_mark', 8:'nationality',
              9:'cbrn'}
+
+digits = {
+    "one":1,"won":1,
+    "two":2,"too":2,"to":2,
+    "three":3,
+    "four":4,"for":4,
+    "five":5,
+    "six":6,
+    "seven":7,
+    "eight":8, "ate":8,
+    "nine":9, "niner":9
+    }
+
+phonetic_alphabet = ["alpha", "bravo", "charlie","delta", "echo", "foxtrot", "golf", 
+"hotel","india", "juliet","kilo" ,"lima", "mike", "november", "oscar", 
+"papa", "quebec", "romeo" ,"sierra", "tango", "uniform", "victor", "whiskey", 
+"x-ray", "yankee", "zulu"]
