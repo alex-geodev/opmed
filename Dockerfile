@@ -10,15 +10,17 @@ RUN npm install
 RUN yarn global add @quasar/cli
 
 RUN python3 -m venv /opt/python/opmed
-RUN echo 'manylinux1_compatible = True' > /opt/python/opmed/lib/python3.12/site-packages/_manylinux.py
-RUN /opt/python/opmed/bin/python -c 'import sys; sys.path.append(r"/_manylinux.py")'
+# RUN echo 'manylinux1_compatible = True' > /opt/python/opmed/lib/python3.12/site-packages/_manylinux.py
+# RUN /opt/python/opmed/bin/python -c 'import sys; sys.path.append(r"/_manylinux.py")'
 
 
 WORKDIR /opt/api
 COPY ./api/ .
 RUN /opt/python/opmed/bin/pip install -r requirements.txt
 
-CMD ["/opt/python/opmed/bin/python",  "-m",  "uvicorn", "app.main:app",  "--reload"]
+# CMD ["/opt/python/opmed/bin/python",  "-m",  "uvicorn", "app.main:app",  "--reload", "--host", "0.0.0.0"]
+COPY ./run.sh /opt/
+CMD ["/bin/bash", "/opt/run.sh"]
 
 EXPOSE 8000
 EXPOSE 8080
