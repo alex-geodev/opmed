@@ -75,6 +75,8 @@ class nineLineHelper():
             #remaining fields have no quantity associations
             else:
                 for idx,word in enumerate(v.split()):
+                    if word == 'ray':
+                        word = 'x-ray'
                     result = self.check_for_phonetic(word)
                     if result:
                         output+=result
@@ -83,7 +85,7 @@ class nineLineHelper():
                 if k == 'location':
                     lat,lon = self.mgrs_to_lat_long(output)
                     formatted_nine_liner[k] = {'mgrs':output,'lat':lat,'lon':lon}
-                elif k in ['equipment','site_security','pickup_mark']:
+                elif k in ['equipment','site_security','pickup_mark','cbrn']:
                     field = self.get_field(result,k)
                     formatted_nine_liner[k]=field
                 else:
