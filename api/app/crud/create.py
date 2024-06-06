@@ -2,7 +2,7 @@ from app.schema.nine_line import NineLineBase
 from app.config import settings
 from app.crud.helper import nineLineHelper, send_to_db
 import uuid
-import vosk
+#import vosk
 import os
 from pydub import AudioSegment
 
@@ -11,9 +11,9 @@ from pydub import AudioSegment
 #################### SQLITE Create Methods ########################
 ###################################################################
 
-vosk_model = vosk.Model(settings.VOSK_MODEL_PATH)
-audio_model = vosk.KaldiRecognizer(vosk_model, 16000)
-
+#vosk_model = vosk.Model(settings.VOSK_MODEL_PATH)
+#audio_model = vosk.KaldiRecognizer(vosk_model, 16000)
+'''
 def audio_2_nine_line(audio_file) -> NineLineBase:
     """
     The purpose of this method is to convert from audio file to a 9 line json.
@@ -63,7 +63,7 @@ def audio_2_nine_line(audio_file) -> NineLineBase:
         return doc
     except Exception as e:
         print(e)
-
+'''
 def process_nine_line(data:dict)->dict:
     nine_line = nineLineHelper(id = data.get('id'),
                                filepath = data.get('audio_path'),
