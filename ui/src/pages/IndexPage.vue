@@ -63,14 +63,27 @@
 import { defineComponent } from 'vue';
 import FileSelect from 'src/components/FileSelect.vue';
 import TextInput from 'src/components/TextInput.vue';
-import UseState from 'src/store/main.vue'
+import { useState } from 'src/store/main';
 
 export default defineComponent({
   name: 'IndexPage',
   setup() {
       const {
-        loading
+        loading,
+        allNineLines,
+        activeNineLine,
+        prompt,
+        coas
       } = useState();
+
+      return {
+        loading,
+        allNineLines,
+        activeNineLine,
+        prompt,
+        coas
+      }
+  },
   components: {
     FileSelect,
     TextInput
