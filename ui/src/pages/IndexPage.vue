@@ -1,21 +1,20 @@
 <template>
-<q-layout class="flex">
-	<div class="row full-width">
-    <q-card class="col-12">
+	<div class="row full-width q-pa-md">
+    <q-card flat class="col-12">
       <q-card-section>
         <file-select />
       </q-card-section>
       <q-card-section>
         <text-input />
       </q-card-section>
-      <q-card-actions align="around">
+      <q-card-actions class="q-pa-md" align="around">
         <q-btn color="primary">Calculate</q-btn>
         <q-btn color="primary">Clear</q-btn>
       </q-card-actions>
     </q-card>
 	</div>
-  <div class="row full-width">
-    <q-card class="col-12">
+  <div class="row full-width q-pb-md q-pl-md q-pr-md" style="min-height:30vh">
+    <q-card flat class="col-12">
       <q-card-section>
         <div class="text-bold text-center">
           Summary of asdfaasdf
@@ -38,33 +37,40 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="row full-width text-center">
-    <q-card v-ripple class="col-4">
+  <div class="row full-width text-center justify-center" style="min-height:30vh; max-height:30vh">
+    <q-card v-ripple class="col-4 q-mr-md" style="max-width:32%">
       <q-card-section class="text-bold">
-        Course of Action 1
+        COA 1
+      </q-card-section>
+      <q-card-section>
+        Here is an example of where we would put some of this high level information
       </q-card-section>
     </q-card>
-    <q-card v-ripple class="col-4">
+    <q-card v-ripple class="col-4 q-mr-md" style="max-width:32%">
       <q-card-section class="text-bold">
-        Course of Action 2
+        COA 2
       </q-card-section>
     </q-card>
-    <q-card v-ripple class="col-4">
+    <q-card v-ripple class="col-4" style="max-width:32%">
       <q-card-section class="text-bold">
-        Course of Action 3
+        COA 3
       </q-card-section>
     </q-card>
   </div>
-</q-layout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import FileSelect from 'src/components/FileSelect.vue';
 import TextInput from 'src/components/TextInput.vue';
+import UseState from 'src/store/main.vue'
 
 export default defineComponent({
   name: 'IndexPage',
+  setup() {
+      const {
+        loading
+      } = useState();
   components: {
     FileSelect,
     TextInput

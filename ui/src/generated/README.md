@@ -1,4 +1,4 @@
-## Salary_Stone@1.0.0
+## Stiched_Up@1.0.0
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install Salary_Stone@1.0.0 --save
+npm install Stiched_Up@1.0.0 --save
 ```
 
 _unPublished (not recommended):_

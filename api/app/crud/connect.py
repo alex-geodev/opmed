@@ -1,8 +1,10 @@
 import sqlite3
 from ..config import settings
+from neo4j import GraphDatabase
 
-# Create Connection to Database
+# Create Connection to Databases
 connection = sqlite3.connect(settings.DATABASE_NAME)
+neo4j_connection = GraphDatabase.driver(settings.NEO4J_URI, auth=(settings.NEO4J_USER, settings.NEO4J_PASS))
 
 # Set Table Name
 TABLE_NAME = "ninelines"
@@ -70,7 +72,7 @@ def insert(
     create_table()
 
     cursor = connection.cursor()
-    query = f"insert into {TABLE_NAME} values ({id_}, '{mgrs}',\
+    query = f"insert into {TABLE_NAME} values ('{id_}', '{mgrs}',\
         '{audio_transcription}', '{audio_file}', '{lat}', '{lon}', \
         '{frequency}', '{urgent}', '{urgent_surgical}', '{priority}',\
         '{routine}', '{convenience}', '{litter}', '{ambulatory}',\
@@ -80,6 +82,4 @@ def insert(
     cursor.execute(query)
     connection.commit()
     cursor.close()
-
-
 

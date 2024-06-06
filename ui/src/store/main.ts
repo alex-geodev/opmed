@@ -7,7 +7,7 @@ const {
 
 const state = reactive({
     prompt: '',
-    allNineLines: undefined,
+    allNineLines: [] as any,
     activeNineLine: undefined,
     loading: false,
     coas: [],
@@ -15,7 +15,7 @@ const state = reactive({
 
 export async function getNineLines() {
     state.loading = true;
-    const resp = await ninelineApi.value.createNinelineCreatePost
+    const resp = await ninelineApi.value.getNinelineGet()
     const { data } = resp;
     console.log(data);
     state.allNineLines = data;
@@ -25,7 +25,7 @@ export async function getNineLines() {
 export async function getNineLine(id: string) {
     state.loading = true;
     console.log(id);
-    const resp = await ninelineApi.value.createNinelineCreatePost
+    const resp = await ninelineApi.value.getNinelineGet(id)
     const { data } = resp;
     console.log(data);
     state.allNineLines = data;

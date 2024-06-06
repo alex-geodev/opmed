@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, ref} from 'vue';
+import { useState } from 'src/store/main';
 
 export default defineComponent({
   name: 'fileSelect',

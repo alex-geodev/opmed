@@ -1,8 +1,8 @@
 fastapi
-elasticsearch
 uvicorn
 pydantic==1.9.1
 typing
 pydub
 python-multipart
 mgrs
+neo4j

@@ -1,8 +1,11 @@
+from .connect import insert
 import mgrs 
 import re
 from app.crud.lookup_tables.fields import fields, line_numbers, digits, phonetic_alphabet
-import backend.src.nineline_entry as nineline_entry
 
+###################################################################
+#################### 9 Line Helper Methods ########################
+###################################################################
 class nineLineHelper():
 
     def __init__(self, id:str, filepath:str, transcription:str):
@@ -10,8 +13,8 @@ class nineLineHelper():
         self.id = id
         self.filepath = filepath
         self.transcription = transcription
-        self.generate_dict(transcription)
-        self.process_nine_line(self.nineLineInit)
+        self.generate_dict()
+        self.process_nine_line()
 
     def generate_dict(self):
         nine_line_dict = {}
@@ -29,19 +32,19 @@ class nineLineHelper():
 
         self.nineLineInit = nine_line_dict
 
-    def check_for_phonetic(word:str)->str:
+    def check_for_phonetic(self, word:str)->str:
         match = [item for item in phonetic_alphabet if item == word]
         return match[0][0] if match else ''
 
-    def check_for_number(word:str)->str:
+    def check_for_number(self, word:str)->str:
         match = [item for item in list(digits.keys()) if item == word]
         return  str(digits[match[0]]) if match else ''
 
-    def get_field(letter:str,field_name:str)->str:
+    def get_field(self, letter:str,field_name:str)->str:
         match = [v for k,v in fields.get(field_name).items() if k == letter]
         return match[0] if match else 'None'
     
-    def mgrs_to_lat_long(mgrs_grid):
+    def mgrs_to_lat_long(self, mgrs_grid):
 
         m = mgrs.MGRS()
         d = m.toLatLon(mgrs_grid)
@@ -87,6 +90,7 @@ class nineLineHelper():
                     formatted_nine_liner[k]=output
         
         self.nineLineProcessed = formatted_nine_liner
+        return formatted_nine_liner
 
 
 def send_to_db(nineline:dict):
@@ -114,7 +118,11 @@ def send_to_db(nineline:dict):
     pickup_mark = nineline.get('pickup_mark')
     cbrn = nineline.get('cbrn')
 
-    nineline_entry.insert(id_,audio_transcription,audio_file,mgrs,lat,lon,frequency,
+    insert(id_,audio_transcription,audio_file,mgrs,lat,lon,frequency,
                           urgent,urgent_surgical,priority,routine,convenience,litter,
                           ambulatory, us_military, us_civilian, non_us_military,
                           non_us_civilian, enemy_prisoner_of_war,equipment,site_security,pickup_mark,cbrn)
+    
+###################################################################
+##################### NEO4J Helper Methods ########################
+###################################################################

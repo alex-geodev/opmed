@@ -22,6 +22,15 @@ class Settings(BaseSettings):
     MINIO_URL = 'http://localhost:9000'
     MINIO_BUCKET = 'recordings'
 
+    ###########################################
+    ############## NEO4J CONFIG ###############
+    ###########################################
+    NEO4J_URI = 'neo4j://'
+    NEO4J_USER = 'admin'
+    NEO4J_PASS = 'password'
+
+
+
     class Config:
         env_file = '.env'
 
