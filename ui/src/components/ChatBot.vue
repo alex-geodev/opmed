@@ -1,4 +1,6 @@
 <template>
+  <button v-if="!isVisible" class="open-chatbot" @click="toggleChatbot">Chat with us!</button>
+
   <div class="chatbot-container" v-if="isVisible">
     <div class="chatbot-header">
       <span>ChatBot</span>
@@ -28,7 +30,7 @@ export default {
     return {
       isVisible: true,
       userMessage: '',
-      messages: [{ user: false, text: 'Hello! Hxow can I help you?' }],
+      messages: [{ user: false, text: 'Hello! How can I help you?' }],
     };
   },
   methods: {
@@ -108,5 +110,18 @@ export default {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.open-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 999;
 }
 </style>
