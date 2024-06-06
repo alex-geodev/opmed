@@ -1,0 +1,13 @@
+# develop stage
+FROM node:18-alpine3.19 as development
+WORKDIR /ui
+COPY ui/package.json ./
+RUN npm install
+RUN yarn global add @quasar/cli
+COPY . .
+
+
+# build stage
+FROM development as build-stage
+RUN yarn
+RUN quasar build
