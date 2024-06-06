@@ -72,8 +72,8 @@ def insert(
     create_table()
 
     cursor = connection.cursor()
-    query = f"insert into {TABLE_NAME} values ('{id_}', '{mgrs}',\
-        '{audio_transcription}', '{audio_file}', '{lat}', '{lon}', \
+    query = f"insert into {TABLE_NAME} values ('{id_}', '{audio_transcription}',\
+        '{audio_file}', '{mgrs}', '{lat}', '{lon}', \
         '{frequency}', '{urgent}', '{urgent_surgical}', '{priority}',\
         '{routine}', '{convenience}', '{litter}', '{ambulatory}',\
         '{us_military}', '{us_civilian}','{non_us_military}','{non_us_civilian}',\
